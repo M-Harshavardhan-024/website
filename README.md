@@ -1,1 +1,1040 @@
-# website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsha Vardhan - Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2d3e50;
+            --secondary: #1abc9c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--primary);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .hamburger {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #16a085;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .project-content p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-gray);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--dark);
+        }
+        
+        .project-link {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .project-link:hover {
+            background-color: #16a085;
+        }
+        
+        /* Education Section */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--light-gray);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 50px;
+            position: relative;
+            width: 50%;
+            background-color: inherit;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-content:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            padding-right: 30px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            padding-left: 30px;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .timeline-subtitle {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd):after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even):after {
+            left: -10px;
+        }
+        
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .certification-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certification-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .certification-card p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .certification-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            width: 30px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #16a085;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .footer-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-info p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .timeline:before {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            .timeline-item:nth-child(odd):after,
+            .timeline-item:nth-child(even):after {
+                left: 21px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--primary);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Harsha Vardhan</a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>M Harsha Vardhan</h1>
+            <h2>Data Analyst</h2>
+            <p>Analytical and detail-oriented Data Analyst with expertise in Python, SQL, and data visualization. Passionate about leveraging data to derive meaningful insights and drive business decisions.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="M Harsha pic.png" alt="Harsha Vardhan Profile Picture">
+                </div>
+                <div class="about-content">
+                    <h3>Hello, I'm Harsha Vardhan</h3>
+                    <p>I am an analytical and detail-oriented Data Analyst with a strong foundation in data management, analysis, and automation. My expertise spans across Python, SQL, Power BI, and Excel, with a focus on data visualization and modeling.</p>
+                    <p>I'm passionate about Generative AI, Prompt Engineering, and advanced analytics to derive meaningful insights from complex datasets. My problem-solving abilities and attention to detail allow me to optimize data workflows and identify trends that drive business decisions.</p>
+                    <p>With a background in Mechanical Engineering and specialized training in data analytics, I bring a unique perspective to data challenges. I'm eager to apply my analytical abilities in a dynamic, data-driven environment where I can contribute to organizational growth through data-backed insights.</p>
+                    
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> mharshavardhan78@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +919908346940</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana, INDIA</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/m-harsha-vardhan-39b795256/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/M-Harshavardhan-024" target="_blank"><i class="fas fa-github"></i></a>
+                        <a href="mailto:mharshavardhan78@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data Management & Analytics</h3>
+                    <ul>
+                        <li>SQL</li>
+                        <li>Excel (Pivot tablet, VLOOKUP, Data analysis)</li>
+                        <li>Google Sheets</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Automation</h3>
+                    <ul>
+                        <li>Python (Numpy, Pandas)</li>
+                        <li>PDBC</li>
+                        <li>RPA</li>
+                        <li>Power Automate</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Data Visualization</h3>
+                    <ul>
+                        <li>Power BI (Basic)</li>
+                        <li>Excel Charts & Dashboards</li>
+                        <li>Matplotlib & Seaborn</li>
+                        <li>Plotly</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-file-alt"></i> Content Management</h3>
+                    <ul>
+                        <li>MS Word, Outlook, PowerPoint</li>
+                        <li>Google Docs, Sites</li>
+                        <li>Knowledge Base</li>
+                        <li>SharePoint, Teams</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Web Technologies</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Django</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Other Skills</h3>
+                    <ul>
+                        <li>Generative AI</li>
+                        <li>Prompt Engineering</li>
+                        <li>Critical Thinking</li>
+                        <li>Attention to Detail</li>
+                        <li>Decision Making</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Carbon emissions impact.webp" alt="Carbon Emissions Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Carbon Emissions Impact Analysis</h3>
+                        <p>Developed a comprehensive system to track and predict carbon emissions using Python and time series modeling with ARIMA for CO₂ predictions.</p>
+                        <div class="project-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">ARIMA</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Seaborn</span>
+                        </div>
+                        <p>Key achievements:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li>Built a time series model with ARIMA for CO₂ predictions</li>
+                            <li>Preprocessed emission data using Pandas efficiently</li>
+                            <li>Designed visualizations with Matplotlib & Seaborn</li>
+                            <li>Integrated datasets to enhance forecast accuracy</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Netflix content trends.webp" alt="Netflix Analysis Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Netflix Content Strategy Analysis</h3>
+                        <p>Created an analytical framework to understand Netflix content trends and viewing patterns using Python and interactive dashboards.</p>
+                        <div class="project-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">EDA</span>
+                            <span class="skill-tag">Plotly</span>
+                            <span class="skill-tag">Seaborn</span>
+                        </div>
+                        <p>Key achievements:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li>Developed an EDA framework to analyze Netflix trends</li>
+                            <li>Cleaned data using Pandas, processing large records</li>
+                            <li>Built interactive dashboards with Plotly & Seaborn</li>
+                            <li>Automated data updates for seamless integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section" style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2023</div>
+                        <div class="timeline-title">B.Tech in Mechanical Engineering</div>
+                        <div class="timeline-subtitle">ACE ENGINEERING COLLEGE, Ghatkesar, Hyderabad</div>
+                        <p>Score: 65%</p>
+                        <p>Relevant Coursework:</p>
+                        <ul style="margin-left: 20px;">
+                            <li>Linear Algebra and Calculus</li>
+                            <li>Probability and Statistics</li>
+                            <li>Operations Research</li>
+                            <li>Business Economics and Financial Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2017 - 2020</div>
+                        <div class="timeline-title">Diploma in Mechanical Engineering</div>
+                        <div class="timeline-subtitle">GOVERNMENT POLYTECHNIC, Mahabubnagar</div>
+                        <p>Score: 80%</p>
+                        <p>Focused on core mechanical engineering principles while developing a strong foundation in problem-solving and analytical thinking.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2011 - 2017</div>
+                            <div class="timeline-title">SSC (Secondary School Certificate)</div>
+                            <div class="timeline-subtitle">MPTBCW(Boys) Residential School, Nagarjuna Sagar, Nalgonda</div>
+                            <p>Score: 90%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Certifications</h2>
+                </div>
+                <div class="certifications-container">
+                    <div class="certification-card">
+                        <h3>Data Analytics Job Simulation by Deloitte</h3>
+                        <p>Completed a job simulation focused on data analytics, where I worked on real-world datasets to derive insights and present findings.</p>
+                    </div>
+                    
+                    <div class="certification-card">
+                        <h3>SQL (Advanced) by HackerRank</h3>
+                        <p>Earned an advanced SQL certification, demonstrating proficiency in complex queries, joins, and database management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Contact Section -->
+        <section id="contact" class="section" style="background-color: #f5f7fa;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Me</h2>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info-card">
+                        <h3>Let's Connect!</h3>
+                        <div class="contact-details">
+                            <p><i class="fas fa-envelope"></i> mharshavardhan78@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +919908346940</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana, INDIA</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/m-harsha-vardhan-39b795256/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/M-Harshavardhan-024" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="mailto:mharshavardhan78@gmail.com"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Me a Message</h3>
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container footer-container">
+                <div class="footer-info">
+                    <h3>Harsha Vardhan</h3>
+                    <p>Data Analyst with expertise in Python, SQL, and data visualization. Passionate about leveraging data to drive business decisions.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Harsha Vardhan. All rights reserved.</p>
+            </div>
+        </footer>
+    
+        <script>
+            // Hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+    
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+        </script>
+    </body>
+    </html>
